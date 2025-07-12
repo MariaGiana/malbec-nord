@@ -1,0 +1,49 @@
+<h2 class="mb-4">Contact Form</h2>
+
+<form [formGroup]="formContact" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Full Name*</label>
+    <input type="text" formControlName="name" class="form-control" id="name" name="name" />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email*</label>
+    <input type="email" formControlName="email"  [class.invalid]="formContact.get('email')?.valid===false" id="email" name="email" />
+  </div>
+
+  <div class="mb-3">
+    <label for="confirmEmail" class="form-label">Confirm email*</label>
+    <input type="confirmEmail" formControlName="confirmEmail"  [class.invalid]="formContact.get('confirmEmail')?.valid===false" id="confirmEmail" name="confirmEmail" />
+    <p class="alert" *ngIf="formContact.get('confirmEmail')?.touched && formContact.hasError('emailMisMatch')">The email must match</p>    
+</div>
+
+  <div class="mb-3">
+    <label for="subject" class="form-label">Subject</label>
+    <input type="text" formControlName="subject" class="form-control" id="subject" name="subject" />
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Message*</label>
+    <textarea class="form-control" formControlName="message" id="message" name="message" rows="4"></textarea>
+  </div>
+
+  <button [disabled]="formContact.invalid" type="submit" class="btn btn-primary">Send</button>
+
+<div >
+    <p class="alert">* Requiered fields</p>
+</div>
+ 
+@if(isSuccess) { <div class="badge text-bg-success">{{ informationMessage }}</div>
+}@else{
+   <div class="badge text-bg-danger">{{ informationMessage }}</div>}
+
+</form>
+
+<!--Para ver la instancia del objeto en cada input a tiempo real
+<pre>
+    {{formContact.get('name')?.value}}
+    {{formContact.get('email')?.value}}
+    {{formContact.get('name')?.valid}}
+    {{formContact.get('email')?.valid}}
+</pre> 
+-->

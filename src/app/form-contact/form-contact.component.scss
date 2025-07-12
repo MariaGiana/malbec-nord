@@ -1,0 +1,102 @@
+.contact-section {
+    background-color: #1E1E2F;
+    color: #f4f4f4;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #2A2A3D;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
+  
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #E0B973; /* Dorado elegante */
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+  }
+  
+  .form-label {
+    color: #dcdcdc;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    background-color: #3A3A4F;
+    border: 1px solid #555;
+    color: #f4f4f4;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #E0B973;
+    outline: none;
+    box-shadow: 0 0 5px #E0B973aa;
+  }
+  input {
+    width: 100%;
+    background-color: #3A3A4F;
+    border: 1px solid #555;
+    color: #f4f4f4;
+    padding: 10px;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  input:focus {
+    border-color: #E0B973;
+    outline: none;
+    box-shadow: 0 0 5px #E0B973aa;
+  }
+  
+  .btn-primary {
+    background-color: #E0B973;
+    border-color: #E0B973;
+    color: #1E1E2F;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #d2a856;
+    border-color: #d2a856;
+    color: #1E1E2F;
+  }
+
+  .invalid {
+    display: block;
+  width: 100%;
+  box-sizing: border-box; /* para que padding y border no aumenten el ancho */
+  color: red;
+  background-color: #3A3A4F;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+  }
+  .alert{
+    color: #d2a856;
+  }
+
+  input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #3A3A4F inset !important;
+  -webkit-text-fill-color: #f4f4f4 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,0 +1,69 @@
+<h1>Wines List</h1>
+<div class="table-container">
+  <table class="violet-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Wine´s Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Shopping</th>
+        <th>Add to Cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Version antigua
+    <tr *ngFor="let wine of wines" [ngClass]="{'clearance':wine.clearance}">
+     <td><img [src]="wine.image" alt="{{wine.wineName}}" class="img-fluid" style="max-width: 200px;"></td>
+     <td>{{wine.wineName}}</td>
+     <td>{{wine.winery}}</td>
+     <td>{{wine.grapeVariety}}</td>
+     <td>{{wine.description}}</td>
+     <td>{{wine.price | currency}}</td>
+     <td><span class="badge text-bg-warning" *ngIf="wine.stock==0">No Stock</span></td>
+     </tr>-->
+
+      @for (wine of wines; track wine.id){
+
+      <tr [ngClass]="{'clearance':wine.clearance}">
+        <td><img [src]="wine.image" alt="{{wine.wineName}}" class="img-fluid" style="max-width: 200px;"></td>
+        <td>{{wine.wineName | uppercase}}</td>
+       
+        @if(wine.clearance==true){
+        <td>{{ wine.price | currency:'DKK'}}<span class="badge text-bg-warning"> Discount</span></td>
+        }@else {
+        <td>{{ wine.price | currency:'DKK'}}</td>
+        }
+
+        @if(wine.stock<=0){ <td><span class="badge text-bg-danger"> No Stock</span>
+          } @else{
+          <td><span class="badge text-bg-success"> In Stock</span></td>
+          }
+          <td>
+            <app-input-integer [(quantity)]="wine.quantity" [max]="wine.stock" (maxReached)="maxReached($event)"
+              *ngIf="wine.stock"></app-input-integer>
+          </td>
+          <td>
+            <div>
+              <button class="btn-custom" (click)="addToCart(wine)">
+                <i class="bi bi-cart-plus"></i>
+              </button>
+            </div>
+          </td>
+
+      </tr>
+
+      <tr>
+
+        <td colspan="8" class="text-start ps-4">
+            <button class="btn btn-sm btn-custom" [routerLink]="['/wines', wine.id.toString()]">See more</button>
+        </td>
+
+      </tr>
+
+      }
+
+
+    </tbody>
+  </table>
+</div>

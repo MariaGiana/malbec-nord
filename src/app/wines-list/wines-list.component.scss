@@ -1,0 +1,88 @@
+/* Mobile-first */
+body {
+  margin: 0;
+  font-family: Garamond, serif;
+  background-color: #121212;
+  color: #F5F5F5;
+}
+
+h1 {
+  color: whitesmoke;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.table-container {
+  width: 100%;
+  padding: 0 4px;
+  overflow-x: auto; /* Seguridad */
+}
+
+.violet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  background-color: #1E1E2F;
+  text-align: center;
+}
+
+.violet-table th,
+.violet-table td {
+  padding: 4px;
+  border: 1px solid #3A1356;
+  white-space: nowrap;
+}
+
+.violet-table thead th {
+  background-color: #3A1356;
+}
+
+.violet-table tr:nth-child(even) td {
+  background-color: #2A2A40;
+}
+
+.violet-table img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid #3A1356;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-custom {
+  background-color: #3A1356;
+  color: #E0D7F5;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.btn-custom:hover {
+  background-color: #3A3A50;
+}
+
+/* Pantallas medianas en adelante */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .violet-table {
+    font-size: 0.9rem;
+  }
+
+  .violet-table img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .btn-custom {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+}

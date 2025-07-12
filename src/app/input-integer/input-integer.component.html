@@ -1,0 +1,6 @@
+<div class="btns-quantity">
+    <button class="btn btn-violet" (click)="downQuantity()">–</button>
+    <input class="quantity-input" type="number" [(ngModel)]="quantity" (input)="onInputChange($event)" inputmode="numeric"
+    pattern="[0-9]*"/>
+    <button class="btn btn-violet" (click)="upQuantity()">+</button>
+  </div>

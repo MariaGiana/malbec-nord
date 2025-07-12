@@ -1,0 +1,39 @@
+html, body {
+    width: 99%;
+    max-width: 90%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+.custom-navbar {
+    background-color: #3A1356; 
+    color: #ffffff;
+    
+  
+    .navbar-brand,
+    .nav-link {
+      color: #E0D7F5;
+  
+      &:hover {
+        color: #9576AB;
+      }
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  .container {
+    margin: 0 auto;  
+    max-width: 1200px; 
+    padding: 20px; 
+  }
+
+  footer{
+    text-align: center;
+    background-color:  #3A3A50;
+    padding: 6px;
+  }
+
+  
