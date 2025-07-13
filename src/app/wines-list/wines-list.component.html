@@ -28,7 +28,7 @@
       <tr [ngClass]="{'clearance':wine.clearance}">
         <td><img [src]="wine.image" alt="{{wine.wineName}}" class="img-fluid" style="max-width: 200px;"></td>
         <td>{{wine.wineName | uppercase}}</td>
-       
+
         @if(wine.clearance==true){
         <td>{{ wine.price | currency:'DKK'}}<span class="badge text-bg-warning"> Discount</span></td>
         }@else {
@@ -40,12 +40,15 @@
           <td><span class="badge text-bg-success"> In Stock</span></td>
           }
           <td>
+            @if(wine.stock>0){
             <app-input-integer [(quantity)]="wine.quantity" [max]="wine.stock" (maxReached)="maxReached($event)"
-              *ngIf="wine.stock"></app-input-integer>
+              *ngIf="wine.stock"></app-input-integer>}
+            @else{}
           </td>
           <td>
             <div>
-              <button class="btn-custom" (click)="addToCart(wine)">
+              <button class="btn-custom" (click)="addToCart(wine)"
+                [ngClass]="{ 'disabled-btn': wine.stock <= 0 || wine.quantity <= 0 }">
                 <i class="bi bi-cart-plus"></i>
               </button>
             </div>
@@ -56,7 +59,7 @@
       <tr>
 
         <td colspan="8" class="text-start ps-4">
-            <button class="btn btn-sm btn-custom" [routerLink]="['/wines', wine.id.toString()]">See more</button>
+          <button class="btn btn-sm btn-custom" [routerLink]="['/wines', wine.id.toString()]">See more</button>
         </td>
 
       </tr>

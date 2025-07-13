@@ -27,12 +27,17 @@ export class WineCartService {
       item.quantity+=wine.quantity;
       
     }
-    //console.log("elemento agregado:", this._cartList);
     this.cartList.next(this._cartList);
     
     }
 
-    
+    removeFromCart(wine: Wines): void {
+      this._cartList = this._cartList.filter(item => item.wineName !== wine.wineName);
+      this.cartList.next([...this._cartList]);
+      console.log("stock disponible: " , wine.stock);
+      
+      
+    }
   }
 
 

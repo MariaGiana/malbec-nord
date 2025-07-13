@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WineCartService} from '../wine-cart.service';
+import { WineDataService } from '../wine-data.service'; 
 import { Wines } from '../wines-list/Wines';
-import { Observable } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -12,16 +12,28 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class MalbecnordCartComponent implements OnInit {
   wines: Wines[] = [];
-  cartList$: Observable<Wines[]>;
+  cartList: Wines[] = [];
 
-  constructor(private cart: WineCartService,
-    private cdr: ChangeDetectorRef
-  ) {
-    this.cartList$ = cart.cartList.asObservable();
-    {
-    }
+  constructor(  
+    private cart:WineCartService, 
+    private wineData: WineDataService,
+    private cdr: ChangeDetectorRef){
+   }
+
+   ngOnInit(): void {
+    this.wineData.getAll().subscribe((wines: Wines[]) => this.wines = wines);
+    this.cart.cartList.subscribe((list) => {
+      this.cartList = list;
+    });
+
+ }
+
+  removeFromCart(wine: Wines): void {
+    this.cart.removeFromCart(wine);
+    wine.stock += wine.quantity;
+    this.cdr.detectChanges();
+    console.log("stock:", wine.stock)
   }
-  ngOnInit(): void {}
 
 }
 

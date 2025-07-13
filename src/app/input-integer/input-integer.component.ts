@@ -8,6 +8,7 @@ import { Wines } from '../wines-list/Wines';
   styleUrl: './input-integer.component.scss'
 })
 export class InputIntegerComponent {
+  
 
   @Input ()
   quantity!: number;

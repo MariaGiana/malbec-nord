@@ -30,6 +30,7 @@ export class WinesListComponent{
     wine.stock -= wine.quantity;
     wine.quantity=0;
     this.cdr.detectChanges();
+    console.log("stock:", wine.stock)
   }
 
   maxReached(m:string){

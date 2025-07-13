@@ -5,6 +5,5 @@
     <p><strong>Winery:</strong> {{ wine.winery }}</p>
     <p><strong>Description:</strong> {{ wine.description }}</p>
     <p><strong>Price:</strong> {{ wine.price | currency:'DKK' }}</p>
-    <p><strong>Stock:</strong> {{ wine.stock }}</p>
     <a class="btn btn-secondary" [routerLink]="['/wines']">Back to List</a>
   </div>
