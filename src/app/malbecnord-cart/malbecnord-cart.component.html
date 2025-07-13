@@ -5,7 +5,6 @@
     <div *ngFor="let wine of cartList" class="cart-item">
       <div class="item-header">
         <strong>{{ wine.wineName | uppercase }}</strong>
-        <button class="btn-remove" (click)="removeFromCart(wine)">Remove</button>
       </div>
       <div class="item-details">
         <span>Quantity: {{ wine.quantity }}</span>

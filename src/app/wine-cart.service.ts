@@ -20,7 +20,7 @@ export class WineCartService {
     let item = this._cartList.find(v1 => v1.wineName === wine.wineName);
 
 
-    if(!item){ wine.stock -= wine.quantity;
+    if(!item){ 
       this._cartList.push({ ... wine});
      
     }else{
@@ -29,14 +29,6 @@ export class WineCartService {
     }
     this.cartList.next(this._cartList);
     
-    }
-
-    removeFromCart(wine: Wines): void {
-      this._cartList = this._cartList.filter(item => item.wineName !== wine.wineName);
-      this.cartList.next([...this._cartList]);
-      console.log("stock disponible: " , wine.stock);
-      
-      
     }
   }
 

@@ -28,12 +28,6 @@ export class MalbecnordCartComponent implements OnInit {
 
  }
 
-  removeFromCart(wine: Wines): void {
-    this.cart.removeFromCart(wine);
-    wine.stock += wine.quantity;
-    this.cdr.detectChanges();
-    console.log("stock:", wine.stock)
-  }
 
 }
 
